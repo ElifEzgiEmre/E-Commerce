@@ -1,0 +1,78 @@
+﻿@using shopApp.WEBUI.Models;
+@model Item
+@*<h3>Cart Page</h3>
+    <table cellpadding="2" cellspacing="2" border="1">
+        <tr>
+            <th>Option</th>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Quantity</th>
+            <th>Sub Total</th>
+        </tr>
+        @foreach (var item in ViewBag.cart)
+        {
+            <tr>
+                <td><a asp-controller="cart" asp-action="remove" asp-route-id="@item.product.ProductId">Remove</a></td>
+                <td>@item.product.ProductId</td>
+                <td>@item.product.Name</td>
+                <td>@item.product.Price</td>
+                <td>@item.Quantity</td>
+                <td>@(item.product.Price * item.Quantity)</td>
+            </tr>
+        }
+
+        <tr>
+            <td align="right" colspan="6">Sum</td>
+            <td>
+                @ViewBag.total
+            </td>
+
+        </tr>
+    </table>
+    <br />
+    <a asp-controller="Product" asp-actions="List">Continue Shopping</a>
+    <button type="button" onclick="window.location.href='/Product/List'">Continue Shopping</button>
+
+    <a asp-controller="Checkout" asp-actions="index">Go to Checkout</a>*@
+
+<table class="table">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">Option</th>
+            <th scope="col">Id</th>
+            <th scope="col">Name</th>
+            <th scope="col">Price</th>
+            <th scope="col">Quantity</th>
+            <th scope="col">Sub Total</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in ViewBag.cart)
+        {
+            <tr>
+                <td><a asp-controller="cart" asp-action="remove" asp-route-id="@item.product.ProductId">Remove</a></td>
+                <td>@item.product.ProductId</td>
+                <td>@item.product.Name</td>
+                <td>@item.product.Price</td>
+                <td>@item.Quantity</td>
+                <td>@(item.product.Price * item.Quantity)</td>
+            </tr>
+        }
+        <tr>
+            <td align="right" colspan="6">Sum</td>
+            <td>
+                @ViewBag.total
+            </td>
+
+        </tr>
+
+
+    </tbody>
+
+</table>
+
+<button type="button" class="btn btn-success" onclick="window.location.href='/Product/List'">Continue Shopping</button>
+
+<button type="button" class="btn btn-danger" onclick="window.location.href='/Checkout/Index'">Go to Checkout</button>
+@*<a asp-controller="Checkout" asp-actions="index">Go to Checkout</a>*@

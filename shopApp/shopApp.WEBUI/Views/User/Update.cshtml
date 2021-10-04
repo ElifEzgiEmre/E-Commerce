@@ -1,0 +1,49 @@
+﻿
+@{
+    ViewData["Title"] = "Update";
+}
+
+<h1>Update</h1>
+
+@addTagHelper*,MicrosoftAspNetCore.Mvc.TagHelpers
+@{
+    ViewData["Title"] = "Create";
+}
+@using shopApp.WEBUI.Models;
+@model User
+
+<form asp-controller="User" asp-action="Update">
+    <div asp-validation-summary="All"></div>
+    <table>
+        <tr>
+            <td>
+                <label asp-for="Id">Id:</label>
+            </td>
+            <td>
+                <input asp-for="Id" />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label asp-for="UserName">User Name:</label>
+            </td>
+            <td>
+                <input asp-for="UserName" />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label asp-for="Email">E-mail:</label>
+            </td>
+            <td>
+                <input asp-for="Email" />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <button type="submit">Update</button>
+            </td>
+            
+        </tr>
+    </table>
+</form>

@@ -1,0 +1,27 @@
+﻿@using shopApp.WEBUI.Entities;
+@model shopApp.WEBUI.Entities.Products
+@*
+    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+*@
+    <div class="card mb-2">
+        @*<img class="card-img-top" src="~/img/@Model.ImageUrl" alt="">*@
+        <img class="card-img-top" src="~/img/@Model.ImageUrl" alt="">
+        <div class="card-body">
+            <h5 class="card-title">@Model.Name</h5>
+            <p class="card-text">@Model.Price</p>
+
+
+            <a asp-controller="Product" asp-action="Details" asp-route-id="@Model.ProductId" class="btn btn-primary btn-sm">İncele</a>
+
+            <a asp-controller="Product" asp-action="Edit" asp-route-id="@Model.ProductId" class="btn btn-primary btn-sm">Edit</a>
+
+
+            <a  asp-controller="Cart" asp-action ="buy" asp-route-id="@Model.ProductId" class="btn btn-primary btn-sm">Buy Now</a>
+
+            <form method="POST" action="/product/delete" style="display: inline;">
+                <input type="hidden" name="ProductId" value="@Model.ProductId">
+                <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+            </form>
+
+        </div>
+    </div>

@@ -1,0 +1,26 @@
+﻿
+@model List<shopApp.WEBUI.Models.User>
+@{
+    ViewData["Title"] = "List";
+}
+
+
+    <table>
+        <tr>
+            <th>Id:</th>
+            <th>User Name:</th>
+            <th>E-mail:</th>
+        </tr>
+        @foreach (var item in Model)
+        {
+    <tr>
+        <td>@item.Id</td>
+        <td>@item.UserName</td>
+        <td>@item.Email</td>
+        <td><a href="@Url.Action("Update",new {id = item.Id})"><input type="button" value="Update"/></a></td>
+        <td><a href="@Url.Action("Delete",new {id = item.Id})"><input type="button" value="Delete" /></a></td>
+    </tr>
+        }
+
+    </table>
+<button type="button" onclick="window.location.href='/User/Logout'">Logout</button>

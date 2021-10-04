@@ -1,0 +1,57 @@
+﻿@*@using shopApp.WEBUI.ViewModels;
+    @model ProductViewModel
+
+
+
+    @{
+        var products = Model.Products;
+
+    }
+
+    @section Categories{
+        @await Component.InvokeAsync("Categories")
+    }
+
+
+    @if (Model.Products.Count == 0)
+    {
+        @await Html.PartialAsync("noproduct")
+
+    }
+    else
+    {
+        <div class="row">
+            @foreach (var product in products)
+            {
+                <div class="col-md-4">
+                    @await Html.PartialAsync("product", product)
+                </div>
+
+            }
+        </div>
+
+    }*@
+@model List<shopApp.WEBUI.Entities.Products>
+
+@section Categories{
+    @await Component.InvokeAsync("Categories")
+}
+
+@if (Model.Count == 0)
+{
+    @await Html.PartialAsync("noproduct")
+
+}
+else
+{
+    <div class="row">
+        @foreach (var product in Model)
+        {
+            <div class="col-md-4">
+                @await Html.PartialAsync("product", product)
+            </div>
+
+        }
+    </div>
+
+}

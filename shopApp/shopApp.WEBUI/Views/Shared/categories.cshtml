@@ -1,0 +1,11 @@
+﻿@using shopApp.WEBUI.Models;
+@model List<Category>
+@*
+    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+*@
+<div class="list-group">
+    @foreach (var category in Model)
+    {
+        <a href="#" class="list-group-item list-group-action">@category.Name</a>
+    }
+</div>
